@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/storeDocument','DocumentController@storeDocument');
+
+Route::post('/updateDocument','DocumentController@updateDocument');
+
+Route::post('/deleteDocument','DocumentController@deleteDocument');
+
+

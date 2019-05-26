@@ -4,9 +4,49 @@ namespace App\Http\Controllers;
 
 use App\Document;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class DocumentController extends Controller
 {
+
+    public function storeDocument(){
+
+        $oneDocument = new Document();
+
+        $oneDocument->title = request('titleOf');
+
+        $oneDocument->user_id = auth()->user()->id;
+
+        $oneDocument->save();
+
+        return redirect('/home');
+
+    }
+
+    public function updateDocument(){
+
+        /*
+        $titleOfThisDocument = Input::get('toUpdate');
+
+        $current_timestamp = Carbon::now()->timestamp;
+
+        $documentToUpdate = DB::table('documents')->select()->where('title', $titleOfThisDocument); //->update(['updated_at' => $current_timestamp]);
+
+
+
+        $documentToUpdate->updated_at = Carbon::now();
+        $documentToUpdate->save();
+*/
+        return redirect('/home');
+    }
+
+    public function deleteDocument() {
+
+        return redirect('/home');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +64,7 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
