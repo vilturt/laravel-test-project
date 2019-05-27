@@ -11,6 +11,16 @@ use Carbon\Carbon;
 class DocumentController extends Controller
 {
 
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function storeDocument(){
 
         $oneDocument = new Document();
@@ -26,6 +36,12 @@ class DocumentController extends Controller
     }
 
     public function updateDocument(){
+
+        // couldn't get this method to update, or touch() the updated_at timestamp
+
+        // should have created an instance of model and update the variable to now() or...
+
+        // ... call the touch() mathod so the below code isn't currently working - so it's commented out
 
         /*
         $titleOfThisDocument = Input::get('toUpdate');
@@ -44,8 +60,16 @@ class DocumentController extends Controller
 
     public function deleteDocument() {
 
+        // didn't have time to get this to work
+
+        // should get instance of model and run delete-function
+
+        // softdeletes-column is found inside database table
+
         return redirect('/home');
     }
+
+// below functions were generated but weren't used...
 
     /**
      * Display a listing of the resource.
